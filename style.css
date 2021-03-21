@@ -16,11 +16,12 @@ body{
 .header{
 	background: url("images/pattern-bg.png");
 	background-position: top;
-	background-repeat: no-repeat;
+	height: 40vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	position: relative;
 }
 .heading{
 	color: #fff;
@@ -50,6 +51,9 @@ button{
 	border-bottom-right-radius: 10px;
 }
 .box{
+	position: absolute;
+	bottom: -50%;
+	transform: translateY(50%);
 	margin-top: 2rem;
 	margin-right: 10px;
 	margin-left: 10px;
@@ -59,6 +63,7 @@ button{
 	border-bottom-left-radius: 10px;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
+	z-index: 1;
 }
 .content{
 	padding: 1.5rem 5rem;
@@ -80,6 +85,20 @@ button{
 	.content{
 		display: flex;
 		justify-content: space-between;
+		padding: 2rem 2rem;
 	}
+	.sub-box{
+		padding: 1rem 0rem;
+	}
+	.sub-box:not(:last-child){
+		margin-bottom: unset;
+	}
+	.sub-box:not(:first-child){
+		border-left: 1px solid var(--Dark-Gray);
+		padding-left: 2rem;
+	}
+}
 
+#mapid{
+	height: 60vh;
 }

@@ -3,16 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="icon" type="image/png" href="images/favicon.png">
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   		crossorigin=""/>
+
+   		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   		crossorigin=""></script>
 
         <title>Location Tracker</title>
         <link rel="stylesheet" href="style.css">  
     </head>
 
     <body>
-    	<div id="main_body">
-
+    	
 	    	<div class="header">
 	    		<h1 class="heading">IP Address Tracker</h1>
 	    		<form>
@@ -45,10 +51,8 @@
 	    			
 	    		</div>
 	    	</div>
-	    </div>
 
-    	<div id="idMap"></div>
-    	</div>
+	    <div id="mapid"></div>
 
     	<script src="script.js"></script> 
     </body>
