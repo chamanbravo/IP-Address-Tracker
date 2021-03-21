@@ -15,29 +15,71 @@ body{
 }
 .header{
 	background: url("images/pattern-bg.png");
-	background-size: cover;
-	background-position: center;
+	background-position: top;
 	background-repeat: no-repeat;
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
 }
 .heading{
 	color: #fff;
-	font-weight: 500;
+	font-weight: 400;
+	margin-top: 1.5rem;
 }
 form{
-	display: inline-block;
+	display: inline-flex;
+	margin-top: 1.5rem;
 }
 input{
 	border: none;
-	font-size: 18px;
-	padding: 10px 15px;
+	width: calc(270px + 10vw);
+	outline: none;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 20px 15px;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px; 
-
 }
 button{
 	background: var(--Very-Dark-Gray);
 	border: none;
-	text-align: center;
+	outline: none;
+	width: 60px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.box{
+	margin-top: 2rem;
+	margin-right: 10px;
+	margin-left: 10px;
+	background: #fff;
+	width: 90%;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.content{
+	padding: 1.5rem 5rem;
+}
+.content h3{
+	color: var(--Dark-Gray);
+	font-size: 0.8rem;
+	font-weight: 500;
+	margin-bottom: 0.2rem;
+}
+.content h2{
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+.sub-box:not(:last-child){
+	margin-bottom: 1.2rem;
+}
+@media (min-width: 768px){
+	.content{
+		display: flex;
+		justify-content: space-between;
+	}
+
 }
