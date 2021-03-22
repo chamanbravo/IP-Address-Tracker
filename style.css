@@ -9,6 +9,7 @@
 :root{
 	--Very-Dark-Gray: hsl(0, 0%, 17%);
 	--Dark-Gray: hsl(0, 0%, 59%);
+	font-size: 16px;
 }
 body{
 	font-family: Rubik;
@@ -17,7 +18,7 @@ body{
 	background: url("images/pattern-bg.png");
 	background-size: cover;
 	background-position: top;
-	height: 40vh;
+	height: 280px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -27,15 +28,14 @@ body{
 .heading{
 	color: #fff;
 	font-weight: 400;
-	margin-top: 1.5rem;
+	margin-top: 0.5rem;
 }
 form{
 	display: inline-flex;
-	margin-top: 1.5rem;
+	margin-top: 0.5rem;
 }
 input{
 	border: none;
-	width: calc(270px + 10vw);
 	outline: none;
 	font-size: 20px;
 	font-weight: 500;
@@ -47,7 +47,7 @@ button{
 	background: var(--Very-Dark-Gray);
 	border: none;
 	outline: none;
-	width: 60px;
+	padding: 20px 15px;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -59,41 +59,55 @@ button:hover{
 	position: absolute;
 	bottom: 0;
 	transform: translateY(50%);
-	margin-top: 2rem;
 	margin-right: 10px;
 	margin-left: 10px;
 	background: #fff;
-	width: 90%;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
+	border-radius: 10px;
 	z-index: 999;
 }
 .content{
 	padding: 1.5rem 5rem;
+	text-align: left;
 }
 .content h3{
 	color: var(--Dark-Gray);
 	font-size: 0.8rem;
 	font-weight: 500;
-	margin-bottom: 0.2rem;
 }
 .content h2{
 	font-size: 1.4rem;
-	font-weight: 700;
+	font-weight: 500;
 }
 .sub-box:not(:last-child){
 	margin-bottom: 1.2rem;
 }
 @media (min-width: 768px){
+	.heading{
+		margin-top: 2.219rem;
+	}
+	form{
+		margin-top: 2.219rem;
+	}
+	input{
+		width: 496px;
+	}
+	button{
+		width: 60px;
+	}
+	.box{
+		width: 85%;
+		max-width: 1110px;
+	}
 	.content{
 		display: flex;
 		justify-content: space-between;
-		padding: 2rem 2rem;
+		padding: 2.5rem 2rem;
+	}
+	.content h2{
+		margin-top: 0.313rem;
 	}
 	.sub-box{
-		padding: 1rem 0rem;
+		width: 25%;
 	}
 	.sub-box:not(:last-child){
 		margin-bottom: unset;
@@ -105,7 +119,7 @@ button:hover{
 }
 
 #mapid{
-	height: 60vh;
+	height: calc(100vh - 280px);
 }
 
 .leaflet-control{
