@@ -11,7 +11,7 @@ async function getMyIp(){
 	const dataGeoLocation = await geoLocation.json();
 
 	outputIp.innerHTML = dataGeoLocation.ip;
-	outputlocation.innerHTML = dataGeoLocation.location.city;
+	outputlocation.innerHTML = `${dataGeoLocation.location.city}, ${dataGeoLocation.location.country}`;
 	timezone.innerHTML = dataGeoLocation.location.timezone;
 	isp.innerHTML = dataGeoLocation.isp;
 
