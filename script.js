@@ -1,11 +1,13 @@
 
-//Ipify//
 const outputIp = document.querySelector(".ip-address");
 const outputlocation = document.querySelector(".location");
 const timezone = document.querySelector(".timezone");
 const isp = document.querySelector(".isp");
-const button = document.querySelector("button");
+const button = document.querySelector(".sumbit");
+const userInput = document.querySelector(".myInput").value;
 
+
+//Ipify//
 async function getMyIp(){
 	const geoLocation = await fetch(`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC`);
 	const dataGeoLocation = await geoLocation.json();
@@ -38,5 +40,3 @@ async function getMyIp(){
 
 
 getMyIp();
-
-
