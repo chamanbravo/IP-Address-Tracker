@@ -78,3 +78,14 @@ button.addEventListener('click', () => {
 	search();
 });
 
+const errorMessage = () => {
+  const errMsgPrg = document.createElement('p');
+
+  close__icon.classList.add('fa-times');
+  errMsgPrg.textContent =
+    'Sorry, there is no match for the IP Address or the domain you are looking.';
+  errMsg.classList.add('modal--open');
+  errMsg.append(errMsgPrg);
+  errMsg.append(errMsgPrg);
+  overlay.classList.add('overlay--open');
+};
