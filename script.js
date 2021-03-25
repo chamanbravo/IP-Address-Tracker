@@ -41,7 +41,7 @@ async function getMyIp(){
 
 getMyIp();
 
- 
+
 const search = async () => {
 
     const geoLocation = await fetch (`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC&ipAddress=${userInput.value}`);
