@@ -27,7 +27,7 @@ body{
 }
 
 #mapid{
-	height: calc(100vh - 260px);
+	height: 100vh;
 }
 
 .heading{
