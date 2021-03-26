@@ -49,7 +49,7 @@ getMyIp();
 
 const search = async () => {
 
-    const geoLocation = await fetch (`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC&ipAddress=${userInput.value}`);
+    const geoLocation = await fetch (`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC&domain=${userInput.value}`);
     const dataGeoLocation = await geoLocation.json();
 
 	outputIp.innerHTML = dataGeoLocation.ip;
@@ -60,6 +60,7 @@ const search = async () => {
 	const lat = dataGeoLocation.location.lat;
     const lng = dataGeoLocation.location.lng;
 
+    //Leaflet.js
     var container = L.DomUtil.get('mapid');
 		if(container != null){
 		mymap.remove();
