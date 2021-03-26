@@ -36,8 +36,8 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Leaflet] - (https://leafletjs.com/) - JS library for maps
-- [Ipify] - (https://geo.ipify.org/) - IP Geolocation API
+- [Leaflet](https://leafletjs.com/) - JS library for maps
+- [Ipify](https://geo.ipify.org/) - IP Geolocation API
 
 ## Author
 
