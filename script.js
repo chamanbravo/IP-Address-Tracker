@@ -8,7 +8,7 @@ const userInput = document.querySelector(".myInput");
 
 const icon = L.icon({
 	    iconUrl: './images/icon-location.png',
-	    iconSize: [50, 55],
+	    iconSize: [50, 60],
 	    iconAnchor: [23, 56],
 	}
 );
