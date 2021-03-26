@@ -18,15 +18,21 @@ body{
 	background: url("images/pattern-bg.png");
 	background-size: cover;
 	background-position: top;
-	height: 280px;
+	height: 260px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
 	position: relative;
 }
+
+#mapid{
+	height: calc(100vh - 260px);
+}
+
 .heading{
 	color: #fff;
+	font-size: 1.4rem;
 	font-weight: 400;
 	margin-top: 0.5rem;
 }
@@ -35,6 +41,7 @@ form{
 	margin-top: 0.5rem;
 }
 input{
+	width: 90%;
 	border: none;
 	outline: none;
 	font-size: 20px;
@@ -44,6 +51,7 @@ input{
 	border-bottom-left-radius: 10px; 
 }
 button{
+	width: 50px;
 	background: var(--Very-Dark-Gray);
 	border: none;
 	outline: none;
@@ -75,13 +83,17 @@ button:hover{
 	font-weight: 500;
 }
 .content h2{
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	font-weight: 500;
 }
 .sub-box:not(:last-child){
 	margin-bottom: 1.2rem;
 }
-@media (min-width: 768px){
+
+@media (min-width: 767px){
+	.header{
+		height: 280px
+	}
 	.heading{
 		margin-top: 2.219rem;
 	}
@@ -104,10 +116,12 @@ button:hover{
 		padding: 2.5rem 2rem;
 	}
 	.content h2{
+		font-size: 1rem; 
 		margin-top: 0.313rem;
 	}
 	.sub-box{
 		width: 25%;
+    	padding-right: 10px;
 	}
 	.sub-box:not(:last-child){
 		margin-bottom: unset;
@@ -116,10 +130,50 @@ button:hover{
 		border-left: 1px solid var(--Dark-Gray);
 		padding-left: 2rem;
 	}
+
+	#mapid{
+	height: calc(100vh - 280px);
+}
 }
 
-#mapid{
-	height: calc(100vh - 280px);
+
+@media (min-width: 1024px){
+	.heading{
+		margin-top: 2.219rem;
+	}
+	form{
+		margin-top: 2.219rem;
+	}
+	input{
+		width: 496px;
+	}
+	button{
+		width: 60px;
+	}
+	.box{
+		width: 85%;
+		max-width: 1110px;
+	}
+	.content{
+		display: flex;
+		justify-content: space-between;
+		padding: 2.5rem 2rem;
+	}
+	.content h2{
+		font-size: 1.4rem;
+		margin-top: 0.313rem;
+	}
+	.sub-box{
+		width: 25%;
+    	padding-right: 10px;
+	}
+	.sub-box:not(:last-child){
+		margin-bottom: unset;
+	}
+	.sub-box:not(:first-child){
+		border-left: 1px solid var(--Dark-Gray);
+		padding-left: 2rem;
+	}
 }
 
 .leaflet-control{
