@@ -6,6 +6,15 @@ const isp = document.querySelector(".isp");
 const button = document.querySelector(".sumbit");
 const userInput = document.querySelector(".myInput");
 
+const icon = L.icon({
+	    iconUrl: './images/icon-location.png',
+	    iconSize: [50, 55],
+	    iconAnchor: [23, 56],
+	}
+);
+
+let mymap = '';
+let marker = '';
 
 //Ipify//
 async function getMyIp(){
@@ -17,8 +26,11 @@ async function getMyIp(){
 	timezone.innerHTML = dataGeoLocation.location.timezone;
 	isp.innerHTML = dataGeoLocation.isp;
 
+	const lat = dataGeoLocation.location.lat;
+    const lng = dataGeoLocation.location.lng;
+
 	//Leaflet.js
-	var mymap = L.map('mapid').setView([dataGeoLocation.location.lat, dataGeoLocation.location.lng], 15);
+	mymap = L.map('mapid').setView([lat, lng], 15);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 20,
@@ -27,14 +39,7 @@ async function getMyIp(){
 			zoomOffset: -1
 	}).addTo(mymap);
 
-
-	const icon = L.icon({
-	    iconUrl: './images/icon-location.png',
-	    iconSize: [50, 55],
-	    iconAnchor: [23, 56],
-	    });
-
-	const marker = L.marker([dataGeoLocation.location.lat, dataGeoLocation.location.lng],{icon: icon}).addTo(mymap);
+	marker = L.marker([lat, lng],{icon: icon}).addTo(mymap);
 
 }
 
@@ -52,8 +57,15 @@ const search = async () => {
 	timezone.innerHTML = dataGeoLocation.location.timezone;
 	isp.innerHTML = dataGeoLocation.isp;
 
+	const lat = dataGeoLocation.location.lat;
+    const lng = dataGeoLocation.location.lng;
 
-    var mymap = L.map('mapid').setView([dataGeoLocation.location.lat, dataGeoLocation.location.lng], 15);
+    var container = L.DomUtil.get('mapid');
+		if(container != null){
+		mymap.remove();
+	}
+
+    mymap = L.map('mapid').setView([lat, lng], 15);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 20,
@@ -62,14 +74,7 @@ const search = async () => {
 			zoomOffset: -1
 	}).addTo(mymap);
 
-
-	const icon = L.icon({
-	    iconUrl: './images/icon-location.png',
-	    iconSize: [50, 55],
-	    iconAnchor: [23, 56],
-	    });
-
-	const marker = L.marker([dataGeoLocation.location.lat, dataGeoLocation.location.lng],{icon: icon}).addTo(mymap);
+	marker = L.marker([lat, lng],{icon: icon}).addTo(mymap);
 
 };
 
@@ -78,14 +83,4 @@ button.addEventListener('click', () => {
 	search();
 });
 
-const errorMessage = () => {
-  const errMsgPrg = document.createElement('p');
 
-  close__icon.classList.add('fa-times');
-  errMsgPrg.textContent =
-    'Sorry, there is no match for the IP Address or the domain you are looking.';
-  errMsg.classList.add('modal--open');
-  errMsg.append(errMsgPrg);
-  errMsg.append(errMsgPrg);
-  overlay.classList.add('overlay--open');
-};
