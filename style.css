@@ -218,3 +218,6 @@ button:hover{
 	right: 20px;
 	cursor: pointer;
 }
+.close:hover{
+	opacity: 0.7;
+}
