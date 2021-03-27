@@ -71,7 +71,7 @@ button:hover{
 	margin-left: 10px;
 	background: #fff;
 	border-radius: 10px;
-	z-index: 999;
+	z-index: 500;
 }
 .content{
 	padding: 1.5rem 5rem;
@@ -89,7 +89,11 @@ button:hover{
 .sub-box:not(:last-child){
 	margin-bottom: 1.2rem;
 }
-
+@media (max-width: 766px){
+	br{
+		display: none;
+	}
+}
 @media (min-width: 767px){
 	.header{
 		height: 280px
@@ -133,7 +137,7 @@ button:hover{
 
 	#mapid{
 	height: calc(100vh - 280px);
-}
+	}
 }
 
 
@@ -178,4 +182,39 @@ button:hover{
 
 .leaflet-control{
 	display: none;
+}
+
+.overlay{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: #000;
+	opacity: 0.4;
+	z-index: 501;
+}
+.error-msg{
+	display: none;
+	background-color: hsl(227deg 67% 61%);
+	width: fit-content;
+	padding: 5rem 5rem;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	opacity: 1;
+	z-index: 502;
+	color: #fff;
+}
+.error-msg p{
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+.close{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
 }

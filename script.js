@@ -5,6 +5,9 @@ const timezone = document.querySelector(".timezone");
 const isp = document.querySelector(".isp");
 const button = document.querySelector(".sumbit");
 const userInput = document.querySelector(".myInput");
+const overlay = document.querySelector(".overlay");
+const errormsg = document.querySelector(".error-msg");
+const close = document.querySelector(".close");
 
 const icon = L.icon({
 	    iconUrl: './images/icon-location.png',
@@ -49,33 +52,38 @@ getMyIp();
 
 const search = async () => {
 
-    const geoLocation = await fetch (`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC&domain=${userInput.value}`);
-    const dataGeoLocation = await geoLocation.json();
+	try{
+	    const geoLocation = await fetch (`https://geo.ipify.org/api/v1?apiKey=at_bOCEyrwTfQSxAHyZ7CypYXPaSQQXC&domain=${userInput.value}`);
+	    const dataGeoLocation = await geoLocation.json();
 
-	outputIp.innerHTML = dataGeoLocation.ip;
-	outputlocation.innerHTML = `${dataGeoLocation.location.city}, ${dataGeoLocation.location.country}`;
-	timezone.innerHTML = dataGeoLocation.location.timezone;
-	isp.innerHTML = dataGeoLocation.isp;
+		outputIp.innerHTML = dataGeoLocation.ip;
+		outputlocation.innerHTML = `${dataGeoLocation.location.city}, ${dataGeoLocation.location.country}`;
+		timezone.innerHTML = dataGeoLocation.location.timezone;
+		isp.innerHTML = dataGeoLocation.isp;
 
-	const lat = dataGeoLocation.location.lat;
-    const lng = dataGeoLocation.location.lng;
+		const lat = dataGeoLocation.location.lat;
+	    const lng = dataGeoLocation.location.lng;
 
-    //Leaflet.js
-    var container = L.DomUtil.get('mapid');
-		if(container != null){
-		mymap.remove();
-	}
+	    //Leaflet.js
+	    var container = L.DomUtil.get('mapid');
+			if(container != null){
+			mymap.remove();
+		}
 
-    mymap = L.map('mapid').setView([lat, lng], 15);
+	    mymap = L.map('mapid').setView([lat, lng], 15);
 
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-			maxZoom: 20,
-			id: 'mapbox/streets-v11',
-			tileSize: 512,
-			zoomOffset: -1
-	}).addTo(mymap);
+		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+				maxZoom: 20,
+				id: 'mapbox/streets-v11',
+				tileSize: 512,
+				zoomOffset: -1
+		}).addTo(mymap);
 
-	marker = L.marker([lat, lng],{icon: icon}).addTo(mymap);
+		marker = L.marker([lat, lng],{icon: icon}).addTo(mymap);
+
+	} catch (err) {
+		error();
+	} 
 
 };
 
@@ -84,4 +92,19 @@ button.addEventListener('click', () => {
 	search();
 });
 
+const error = () => {
+	overlay.style.display = "unset";
+	errormsg.style.display = "unset";
+};
 
+close.addEventListener("click", () => {
+	overlay.style.display = "none";
+	errormsg.style.display = "none";
+	location.reload();
+})
+
+overlay.addEventListener("click", () => {
+	overlay.style.display = "none";
+	errormsg.style.display = "none";
+	location.reload();
+})
