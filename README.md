@@ -34,7 +34,6 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [Leaflet](https://leafletjs.com/) - JS library for maps
 - [Ipify](https://geo.ipify.org/) - IP Geolocation API
